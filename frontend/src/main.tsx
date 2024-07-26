@@ -12,6 +12,7 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Publishable Key is Missing");
 }
 
+// use the reactDOM document object model structe
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {/* wrap entire app in clerk point key to evn file */}
