@@ -18,6 +18,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI as string)
   .then(() => console.log("Connected to MongoDB"))
+  // if there is an error, log it and exit the process
   .catch((err) => {
     console.error("Failed to connect to MongoDB:", err);
     process.exit(1);
