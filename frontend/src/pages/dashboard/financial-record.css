@@ -18,7 +18,7 @@ h2 {
 
 /* Common class for all buttons */
 .button {
-  background-color: #3498db;
+  background-color: #abd8f6;
   color: #ffffff;
   border: none;
   padding: 8px 15px;
@@ -55,7 +55,7 @@ h2 {
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 5px;
-  color: #3498db;
+  color: #abd8f6;
 }
 
 /* Labels for better readability */
@@ -85,7 +85,7 @@ label {
 }
 
 .table th {
-  background-color: #3498db; /* Darker blue header background */
+  background-color: #abd8f6; /* Darker blue header background */
   color: white;
   font-size: 16px;
 }

@@ -15,11 +15,13 @@ html {
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Navbar styles */
 .navbar {
-  background-color: #3498db; /* Blue shade that matches button colors */
+  background-color: #abd8f6; /* Blue shade that matches button colors */
   padding: 10px 20px;
   padding-right: 50px;
   display: flex;
@@ -28,9 +30,37 @@ html {
   color: white;
   width: 100%;
   height: 60px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .sign-in-container {
-  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.move-up {
+    margin-top: -20vh;
+}
+
+.sign-in-container h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.sign-in-container h5 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .sign-in-container button {
@@ -62,5 +92,5 @@ html {
 }
 
 /* Additional styles to ensure text and elements are vertically aligned properly */
-.navbar * {
+*.navbar * {
 }
