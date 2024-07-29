@@ -18,7 +18,18 @@ h2 {
 
 /* Common class for all buttons */
 .button {
-  background-color: #abd8f6;
+  background-color: #235434;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button2 {
+  background-color: #071b0e;
   color: #ffffff;
   border: none;
   padding: 8px 15px;
@@ -32,7 +43,7 @@ h2 {
   background-color: #2980b9;
 }
 .button-delete {
-  background-color: #343cdb;
+  background-color: #235434;
   color: #ffffff;
   border: none;
   padding: 8px 15px;
@@ -55,7 +66,7 @@ h2 {
   background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 5px;
-  color: #abd8f6;
+  color: #235434;
 }
 
 /* Labels for better readability */
@@ -85,7 +96,7 @@ label {
 }
 
 .table th {
-  background-color: #abd8f6; /* Darker blue header background */
+  background-color: #235434; /* Darker blue header background */
   color: white;
   font-size: 16px;
 }

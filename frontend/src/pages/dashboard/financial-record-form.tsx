@@ -93,9 +93,22 @@ export const FinancialRecordForm = () => {
             <option value="Debit Card">Debit Card</option>
           </select>
         </div>
-        <button type="submit" className="button">
+        <div>
+        <button type="button" className="button">
+          Add Image
+        </button>
+        <button type="button" className="button">
+          Add Location
+        </button>
+        </div>
+        <div>
+        <button type="submit" className="button2">
           Add To MERNMoney
         </button>
+        
+        
+
+        </div>
       </form>
     </div>
   );
