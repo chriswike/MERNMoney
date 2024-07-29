@@ -2,6 +2,7 @@
 
 import { useUser } from "@clerk/clerk-react";
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from 'react-toastify';
 
 export interface FinancialRecord {
     // get the mongodb id
@@ -51,73 +52,83 @@ export const FinancialRecordsProvider = ({ children }: { children: React.ReactNo
         }, [user]);
 
     const addRecord = async (record: FinancialRecord) => {
-        const response = await fetch(`http://localhost:3000/financial-records/`, {
-            method: "POST",
-            // convert the record to a json string so it can be sent to express
-            body: JSON.stringify(record),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            
-        });
-
         try {
+            const response = await fetch(`http://localhost:3000/financial-records/`, {
+                method: "POST",
+                // convert the record to a json string so it can be sent to express
+                body: JSON.stringify(record),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                
+            });
+
             if (response.ok) {
                 const newRecord = await response.json();
                 console.log(records);
                 // ...prev spreads previos arraey emelments inot a new one 
                 setRecords((prev) => [...prev, newRecord]);
+                toast.success("Added to MERNMoney");
+            } else {
+                toast.error('Failed!');
             }
         } catch (error) {
             console.error("Error adding record:", error);
+            toast.error('Error adding record');
         }
     };
 
     const updateRecord = async (id: string, newRecord: FinancialRecord) => {
-        const response = await fetch(
-            `http://localhost:3000/financial-records/${id}`,
-            {
-            method: "PUT",
-            body: JSON.stringify(newRecord),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            }
-        );
-    
         try {
-            if (response.ok) {
-            const newRecord = await response.json();
-            setRecords((prev) =>
-                prev.map((record) => {
-                if (record._id === id) {
-                    return newRecord;
-                } else {
-                    return record;
+            const response = await fetch(
+                `http://localhost:3000/financial-records/${id}`,
+                {
+                method: "PUT",
+                body: JSON.stringify(newRecord),
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 }
-                })
             );
-            }
-        } catch (err) {}
-        };
-    
-        const deleteRecord = async (id: string) => {
-        const response = await fetch(
-            `http://localhost:3000/financial-records/${id}`,
-            {
-            method: "DELETE",
-            }
-        );
-    
-        try {
+        
             if (response.ok) {
-            const deletedRecord = await response.json();
-            setRecords((prev) =>
-                prev.filter((record) => record._id !== deletedRecord._id)
-            );
+                const updatedRecord = await response.json();
+                setRecords((prev) =>
+                    prev.map((record) => (record._id === id ? updatedRecord : record))
+                );
+                toast.success('Edited!');
+            } else {
+                toast.error('Failed to update record');
             }
-        } catch (err) {}
-        };
+        } catch (err) {
+            console.error("Error updating record:", err);
+            toast.error('Error updating record');
+        }
+    };
+    
+    const deleteRecord = async (id: string) => {
+        try {
+            const response = await fetch(
+                `http://localhost:3000/financial-records/${id}`,
+                {
+                method: "DELETE",
+                }
+            );
+        
+            if (response.ok) {
+                const deletedRecord = await response.json();
+                setRecords((prev) =>
+                    prev.filter((record) => record._id !== deletedRecord._id)
+                );
+                toast.success('Deleted!');
+            } else {
+                toast.error('Failed to delete record');
+            }
+        } catch (err) {
+            console.error("Error deleting record:", err);
+            toast.error('Error deleting record');
+        }
+    };
     
     // return the provider
     return (
@@ -138,4 +149,3 @@ export const useFinancialRecords = () => {
 
     return context;
 };
-

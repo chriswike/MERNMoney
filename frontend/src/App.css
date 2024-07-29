@@ -21,9 +21,9 @@ html {
 
 /* Navbar styles */
 .navbar {
-  background-color: #abd8f6; /* Blue shade that matches button colors */
+  background-color: #235434; /* Blue shade that matches button colors */
   padding: 10px 20px;
-  padding-right: 50px;
+  padding-right: 10px;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -33,7 +33,7 @@ html {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-}
+} 
 .sign-in-container {
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ html {
 }
 
 .move-up {
-    margin-top: -20vh;
+    margin-top: -30vh;
 }
 
 .sign-in-container h3 {
