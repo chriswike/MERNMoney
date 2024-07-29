@@ -5,8 +5,11 @@ import { Auth } from "./pages/auth";
 import { FinancialRecordsProvider } from "./contexts/financial-record-context";
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import { dark } from "@clerk/themes";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  
   return (
     <Router>
       <div className="app-container">
@@ -28,6 +31,7 @@ function App() {
           />
           <Route path="/auth" element={<Auth />} />
         </Routes>
+        <ToastContainer position="top-right" autoClose={1000} />
       </div>
     </Router>
   );

@@ -71,8 +71,10 @@ export const FinancialRecordForm = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select a Category</option>
-            <option value="Food">Food</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Restuarant">Restuarant</option>
             <option value="Housing">Housing</option>
+            <option value="Transportation">Transportation</option>
             <option value="Utilities">Utilities</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Insurance">Insurance</option>
@@ -91,6 +93,7 @@ export const FinancialRecordForm = () => {
             <option value="Credit Card">Credit Card</option>
             <option value="Cash">Cash</option>
             <option value="Debit Card">Debit Card</option>
+            <option value="Bank AutoPay">Bank AutoPay</option>
           </select>
         </div>
         <div>

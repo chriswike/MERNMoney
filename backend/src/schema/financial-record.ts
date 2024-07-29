@@ -10,6 +10,8 @@ interface FinancialRecord {
     description: string;
     category: string;
     paymentMethod: string;
+    imageURL: string;
+    publicId: string;
 }
 
 // create new schema for mongo to use via mongoose
@@ -20,6 +22,8 @@ const financialRecordSchema = new mongoose.Schema<FinancialRecord>({
     description: { type: String, required: true },
     category: { type: String, required: true },
     paymentMethod: { type: String, required: true },
+    imageURL: { type: String, required: false },
+    publicId: { type: String, required: false },
 });
 
 const FinancialRecord = mongoose.model<FinancialRecord>("FinancialRecord", financialRecordSchema);
