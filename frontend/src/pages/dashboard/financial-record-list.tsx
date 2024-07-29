@@ -75,7 +75,7 @@ export const FinancialRecordList = () => {
         Header: "Amount",
         accessor: "amount",
         Cell: (props) => (
-             <EditableCell
+            <EditableCell
             {...props}
             updateRecord={updateCellRecord}
             editable={true}

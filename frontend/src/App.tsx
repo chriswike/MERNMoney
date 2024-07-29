@@ -31,7 +31,7 @@ function App() {
           />
           <Route path="/auth" element={<Auth />} />
         </Routes>
-        <ToastContainer position="top-right" autoClose={1000} />
+        <ToastContainer position="top-right" autoClose={1500} />
       </div>
     </Router>
   );
