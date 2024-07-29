@@ -1,7 +1,11 @@
 /* Centered container for the app */
 .dashboard-container {
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
+
 
 /* General styling for headers within the app */
 h1,
@@ -77,15 +81,15 @@ label {
 }
 
 .table-container {
-  margin: 20px;
-  overflow-x: auto; /* Enables horizontal scrolling if the table is too wide */
+  width: 100%;
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .table th,
