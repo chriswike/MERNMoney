@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import FinancialRecordModel from "../schema/financial-record";
+import SharedAccessModel from "../schema/shared-access";
 
 // create 
 const router = express.Router();
@@ -8,6 +9,15 @@ const router = express.Router();
 router.get("/getAllByUserId/:userId", async (req: Request, res: Response) => {
     try {
         const userId = req.params.userId;
+        const requesterId = req.headers['requester-id'] as string;
+
+        if (userId !== requesterId) {
+            const sharedAccess = await SharedAccessModel.findOne({ ownerId: userId, sharedWithId: requesterId });
+            if (!sharedAccess) {
+                return res.status(403).send("Access denied");
+            }
+        }
+
         const records = await FinancialRecordModel.find({ userId: userId });
         if (records.length === 0) {
             return res.status(404).send("No records found for this user");
